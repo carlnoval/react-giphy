@@ -5,6 +5,10 @@ body {
 #root {
   height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  // align-items: center;
+  // justify-content: center;
+}
+
+.clicked {
+  color: red;
 }
