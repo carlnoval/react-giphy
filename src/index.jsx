@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import '../assets/stylesheets/application.scss';
 
-const Hello = ({ name }) => {
+const Hello = (props) => {
+  // destructuring props to keep dry by
+  // not using props.variable_name all the time
+  const { name } = props;
   return (
-    <div>
+    <h1>
       Hello,
       {name}
-    </div>
+    </h1>
   );
 };
 
