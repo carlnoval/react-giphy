@@ -3,10 +3,18 @@ import React, { Component } from 'react'; // every new jsx file would have this 
 
 import SearchBar from './search_bar';
 import Gif from './gif';
+import GifList from './gif_list';
 
 // component declared as a class
 class App extends Component {
   render () {
+    const gifs = [
+      { id: "1LweXxLwVT0J2" },
+      { id: "lJsrH0ngCPIAg" },
+      { id: "3oriO0OEd9QIDdllqo" },
+      { id: "dA978xl9xBOfe" }
+    ];
+
     return (
       <div>
         <div className="left-scene">
@@ -15,7 +23,9 @@ class App extends Component {
             <Gif id="xT9IgDEI1iZyb2wqo8" />
           </div>
         </div>
-        <div className="right-scene" />
+        <div className="right-scene">
+          <GifList gifs={gifs} />
+        </div>
       </div>
     );
   }
