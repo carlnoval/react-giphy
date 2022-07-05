@@ -16,6 +16,9 @@ class App extends Component {
     };
   }
 
+  search = (query) => {
+  }
+
   render () {
     const { gifs, selectedGfId } = this.state;
 
