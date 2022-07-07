@@ -51,7 +51,7 @@ class App extends Component {
     }, (err, res) => {
       console.log(res); // put a breakpoint here for troubleshooting to see response data
       this.setState({
-        gifs: res.data
+        gifs: res.data // typeof(res.data) => 'object'
       });
     });
   }
