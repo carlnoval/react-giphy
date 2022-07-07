@@ -6,11 +6,13 @@ class Gif extends Component {
     const { id } = this.props;
     // url came from giphy's website after inspecting some gif
     const giphyViewGifURL = `https://media2.giphy.com/media/${id}/200.gif`;
-    // const lwGif = "https://media2.giphy.com/media/xT9IgDEI1iZyb2wqo8/200.gif";
+
+    // to be returned html
     return (
       <img src={giphyViewGifURL} alt="" className="gif" />
     );
   }
 }
 
+// so that app.jsx module can use the component in this module
 export default Gif;
