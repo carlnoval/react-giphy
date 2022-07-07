@@ -1,43 +1,72 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react'; // every new jsx file would have this line
+import giphy from 'giphy-api'; // library installed with yarn `install giphy-api`
 
+// component imports - `import ComponentName`
+// where ComponentName could be any pascal case naming convention
+// `./gif` exported `Gif` component but its called MyGiphy in the this app component
 import SearchBar from './search_bar';
-import Gif from './gif';
+import MyGiphy from './gif';
 import GifList from './gif_list';
 
 // component declared as a class
 class App extends Component {
+  // constructor is mandatory
   constructor(props) {
-    super(props);
+    super(props); // mandatory so class can start using `this` within the constructor
 
-    this.state = {
-      gifs: [], // for gif-list
-      selectedGfId: "xT9IgDEI1iZyb2wqo8" // the current selected gif
-    };
-  }
-
-  search = (query) => {
-  }
-
-  render () {
-    const { gifs, selectedGfId } = this.state;
-
-    /* these lines are no longer used, right scene is empty
-    const gifsX = [
+    const defaultGifID = "xT9IgDEI1iZyb2wqo8"; // default featured/selected gif (lewagon)
+    // default gifs on the list
+    const defaultGifList = [
       { id: "xT9IgDEI1iZyb2wqo8" },
       { id: "1LweXxLwVT0J2" },
       { id: "lJsrH0ngCPIAg" },
       { id: "3oriO0OEd9QIDdllqo" },
-      { id: "dA978xl9xBOfe" }
+      { id: "dA978xl9xBOfe" },
+      { id: "dY8SsGOwlSyhW" },
+      { id: "7LrE3VMOuU6Dm" },
+      { id: "LcSmdna8IwSPr6ITbc" },
+      { id: "10Aj7xX2csLqwg" },
+      { id: "26tP3M3i03hoIYL6M" }
     ];
-    */
 
+    // App component's state, able to use `this` due to super(props)
+    this.state = {
+      gifs: defaultGifList, // for gif-list
+      selectedGfId: defaultGifID
+    };
+
+    // overrides defaultGifList
+    // this.search("homer thinking"); // optional, perserving 43 calls per hour
+  }
+
+  // arrow function to retrieve gifs count of up to the set limit
+  search = (query) => {
+    const giphyBetaAPIKey = "XA24iUGgSSMO7vC3jSkCEd2D0TDncqo5";
+    giphy(giphyBetaAPIKey).search({
+      q: query,
+      // next object properties are optional
+      rating: 'g',
+      limit: 10
+    }, (err, res) => {
+      console.log(res); // put a breakpoint here for troubleshooting to see response data
+      this.setState({
+        gifs: res.data
+      });
+    });
+  }
+
+  // mandatory render function
+  render () {
+    const { gifs, selectedGfId } = this.state; // this component's state, see constructor
+
+    // to be returned html, jsx is inside the brackets {}
     return (
       <div>
         <div className="left-scene">
-          <SearchBar />
+          <SearchBar searchFunction={this.search} />
           <div className="selected-gif">
-            <Gif id={selectedGfId} />
+            <MyGiphy id={selectedGfId} />
           </div>
         </div>
         <div className="right-scene">
@@ -49,7 +78,8 @@ class App extends Component {
 }
 
 // // if declared as a function instead of a class
-// import React from 'react'; // every new jsx file would have this line
+// // every new jsx file would have this line, no need to specify
+// import React from 'react';
 
 // const App = () => {
 //   return (
@@ -60,4 +90,5 @@ class App extends Component {
 //   );
 // };
 
+// reqiured so that index.jsx can render the app component
 export default App;

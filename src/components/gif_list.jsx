@@ -12,6 +12,7 @@ class GifList extends Component {
   }
 
   render() {
+    // javascript injection as attribute value should be inside brackets{}
     return (
       <div className="gif-list">
         {this.renderList()}

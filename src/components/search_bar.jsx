@@ -3,7 +3,11 @@ import React, { Component } from 'react'; // every new jsx file would have this 
 
 class SearchBar extends Component {
   handleGifListUpdate = (event) => {
-    console.log(event.target.value);
+    // debugging
+    // console.log(event.target.value);
+    const { searchFunction } = this.props;
+
+    searchFunction(event.target.value);
   }
 
   render() {
