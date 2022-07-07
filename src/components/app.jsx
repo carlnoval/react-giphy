@@ -11,7 +11,7 @@ import GifList from './gif_list';
 
 // component declared as a class
 class App extends Component {
-  // constructor is mandatory
+  // constructor is needed for states
   constructor(props) {
     super(props); // mandatory so class can start using `this` within the constructor
 
