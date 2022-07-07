@@ -24,4 +24,5 @@ class SearchBar extends Component {
   }
 }
 
+// so that app.jsx module can use the component in this module
 export default SearchBar;
