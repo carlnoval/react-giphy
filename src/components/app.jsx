@@ -32,8 +32,8 @@ class App extends Component {
 
     // App component's state, able to use `this` due to super(props)
     this.state = {
-      gifs: defaultGifList, // for gif-list
-      selectedGfId: defaultGifID
+      selectedGfId: defaultGifID,
+      gifs: defaultGifList // for gif-list
     };
 
     // overrides defaultGifList
