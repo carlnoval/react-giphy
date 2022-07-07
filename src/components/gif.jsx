@@ -3,6 +3,7 @@ import React, { Component } from 'react'; // every new jsx file would have this 
 
 class Gif extends Component {
   render() {
+    // id passed from `App` component
     const { id } = this.props;
     // url came from giphy's website after inspecting some gif
     const giphyViewGifURL = `https://media2.giphy.com/media/${id}/200.gif`;
