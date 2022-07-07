@@ -15,5 +15,5 @@ class Gif extends Component {
   }
 }
 
-// so that app.jsx module can use the component in this module
+// so that app.jsx and gif_list modules can use the Gif component in this module
 export default Gif;
