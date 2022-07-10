@@ -4,12 +4,21 @@
 import React, { Component } from 'react'; // every new jsx file would have this line
 
 class Gif extends Component {
-  setSpotlightGif = (event) => {
-    const { setGif } = this.props;
+  // function has access to the id of the clicked gif since id was passed as param
+  setSpotlightGif = () => {
+    const { id, setGif } = this.props;
 
-    console.log(event.currentTarget.id);
-    setGif(event.currentTarget.id);
+    console.log(id);
+    setGif(id);
   }
+
+  // // below verson uses event parameter, but it is not really needed
+  // setSpotlightGif = (event) => {
+  //   const { setGif } = this.props;
+
+  //   console.log(event.currentTarget.id);
+  //   setGif(event.currentTarget.id);
+  // }
 
   render() {
     // id passed from `App` component
