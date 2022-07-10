@@ -56,6 +56,12 @@ class App extends Component {
     });
   }
 
+  selectGif = (gifID) => {
+    this.setState({
+      selectedGfId: gifID
+    });
+  }
+
   // mandatory render function
   render () {
     const { gifs, selectedGfId } = this.state; // this component's state, see constructor
@@ -70,7 +76,7 @@ class App extends Component {
           </div>
         </div>
         <div className="right-scene">
-          <GifList gifs={gifs} />
+          <GifList gifs={gifs} setGif={this.selectGif} />
         </div>
       </div>
     );

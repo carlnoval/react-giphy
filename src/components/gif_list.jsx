@@ -15,9 +15,12 @@ class GifList extends Component {
     // renderList retuns a list of html returned by the component from gif.jsx
     return gifs.map((gif) => {
       // console.log(gifs); // log and/or put a breakpoint here for debugging
-      // gif here would always be an object
-      // Gif component returns an img tag with a url using gif.id in the src attribute
-      return <Gif id={gif.id} key={gif.id} />; // key is to get rid of the react warning
+      // `gif` here would always be an object
+      // `Gif` component returns an img tag with a url using gif.id in the src attribute
+      // `key` is to get rid of the react warning
+      const { setGif } = this.props;
+
+      return <Gif id={gif.id} key={gif.id} setGif={setGif} />;
     });
   }
 
