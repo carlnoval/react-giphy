@@ -8,7 +8,7 @@ class GifList extends Component {
   renderList = () => {
     // gifs is either an object/array from `App` module
     // object contains object - array contains object
-    const { gifs } = this.props;
+    const { gifs, setGif } = this.props;
 
     // console.log(gifs); // log and/or put a breakpoint here for debugging
 
@@ -18,7 +18,6 @@ class GifList extends Component {
       // `gif` here would always be an object
       // `Gif` component returns an img tag with a url using gif.id in the src attribute
       // `key` is to get rid of the react warning
-      const { setGif } = this.props;
 
       return <Gif id={gif.id} key={gif.id} setGif={setGif} />;
     });
