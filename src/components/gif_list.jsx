@@ -8,6 +8,7 @@ class GifList extends Component {
   renderList = () => {
     // gifs is either an object/array from `App` module
     // object contains object - array contains object
+    // setGif is also from `App` module, it needs to be passed to `Gif` module
     const { gifs, setGif } = this.props;
 
     // console.log(gifs); // log and/or put a breakpoint here for debugging
@@ -18,7 +19,6 @@ class GifList extends Component {
       // `gif` here would always be an object
       // `Gif` component returns an img tag with a url using gif.id in the src attribute
       // `key` is to get rid of the react warning
-
       return <Gif id={gif.id} key={gif.id} setGif={setGif} />;
     });
   }
@@ -32,6 +32,23 @@ class GifList extends Component {
       </div>
     );
   }
+
+  // // another possible clean solution w/o using a function
+  // render() {
+  //   const { gifs, setGif } = this.props;
+
+  //   // javascript injection as attribute value should be inside brackets{}
+  //   return (
+  //     // gif-list div will contain all the html returned by Gif component
+  //     <div className="gif-list">
+  //       {
+  //         gifs.map(({ id }) => {
+  //           return <Gif id={id} key={id} setGif={setGif} />;
+  //         })
+  //       }
+  //     </div>
+  //   );
+  // }
 }
 
 // so that app.jsx module can use the component in this module
