@@ -23,6 +23,10 @@ class Gif extends Component {
   render() {
     // id passed from `App` component
     const { id } = this.props;
+
+    // guard clause to protect for unwanted ids
+    if (id === null || typeof (id) !== 'string') return null;
+
     // url came from giphy's website after inspecting some gif
     const giphyViewGifURL = `https://media2.giphy.com/media/${id}/giphy.gif`;
 
