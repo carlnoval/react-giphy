@@ -15,7 +15,8 @@ class App extends Component {
   constructor(props) {
     super(props); // mandatory so class can start using `this` within the constructor
 
-    const defaultGifID = "xT9IgDEI1iZyb2wqo8"; // default featured/selected gif (lewagon)
+    // lewagon gif id = "xT9IgDEI1iZyb2wqo8"
+    const defaultGifID = null; // default featured/selected gif
     // default gifs on the list
     const defaultGifList = [
       { id: "xT9IgDEI1iZyb2wqo8" },
