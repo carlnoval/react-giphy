@@ -50,7 +50,8 @@ class App extends Component {
       rating: 'g',
       limit: 10
     }, (err, res) => {
-      console.log(res); // put a breakpoint here for troubleshooting to see response data
+      // put a breakpoint here for troubleshooting to see response data
+      // console.log(res);
       this.setState({
         gifs: res.data // typeof(res.data) => 'object'
       });
