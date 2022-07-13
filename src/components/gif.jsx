@@ -4,15 +4,29 @@
 import React, { Component } from 'react'; // every new jsx file would have this line
 
 class Gif extends Component {
+  shouldComponentUpdate(nextProps) {
+    const { id } = this.props;
+
+    // for debugging
+    // console.log(`nextID: ${nextProps.id}
+    // currentId: ${id}
+    // [nextProps.id !== id] is ${nextProps.id !== id}`);
+
+    // only update the gif if the id changes
+    return nextProps.id !== id;
+  }
+
   // function has access to the id of the clicked gif since id was passed as param
   setSpotlightGif = () => {
     const { id, setGif } = this.props;
 
-    console.log(id);
+    // for debugging
+    // console.log(id);
+
     setGif(id);
   }
 
-  // // below verson uses event parameter, but it is not really needed
+  // below verson uses event parameter, but it is not really needed
   // setSpotlightGif = (event) => {
   //   const { setGif } = this.props;
 
@@ -23,6 +37,11 @@ class Gif extends Component {
   render() {
     // id passed from `App` component
     const { id } = this.props;
+
+    // for debugging + investigation on seeing when this component gets re-rendered by react
+    // if `shouldComponentUpdate()` function gets removed then select gif will be re-rendered
+    // for every onChange event on the searchbar input
+    // console.log(`GIF Render - id: ${id}`);
 
     // guard clause to protect for unwanted ids
     if (id === null || typeof (id) !== 'string') return null;
